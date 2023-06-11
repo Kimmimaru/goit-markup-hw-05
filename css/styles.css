@@ -10,6 +10,8 @@
     --o-transform-link-shadow: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --o-transform-link-border: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --o-transform-link-transform:  transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --o-backdrop-trans: : opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 
@@ -26,6 +28,7 @@ ul {
 
 img {
     display: block;
+    border:none
 }
 
 
@@ -628,6 +631,74 @@ body {
 
 
 
+.backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(46, 47, 66, 0.4);
+    transition: var(--o-backdrop-trans);
+
+}
+
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+.modal {
+    position: absolute;
+    width: 408px;
+    min-height: 584px;
+    top: 80px;
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: #fcfcfc;
+    transition: var(--o-transform-link-transform);
+}
+
+
+.close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7e9fc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    cursor: pointer;
+    transition: var(--o-transform-link-border), var(--o-transform-link-background);
+}
+
+
+.close:is(:hover, :focus) {
+    background-color: #404bbf;
+    border: none;
+}
+
+
+.close-icon {
+    fill: #2e2f42;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.close:is(:hover, :focus) .close-icon{
+    fill: #ffffff;
+}
 
 
 
