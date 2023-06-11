@@ -805,9 +805,15 @@ body {
 }
 
 
-.portfolio-img-cont:is(:hover, :focus) .hidden-par {
+.portfolio-img-cont:hover .hidden-par {
     transform: translateY(0);
 }
+
+
+.portfolio-img-cont:focus .hidden-par {
+    transform: translateY(0)
+}
+
 
 
 .portfolio-img {
